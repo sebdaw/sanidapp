@@ -1,0 +1,38 @@
+Options -Indexes
+
+<IfModule mod_headers.c>
+Header set Cache-Control "max-age=0,no-store"
+</IfModule>
+
+#Evitar ver .htaccess
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+RewriteEngine On
+
+RewriteRule ^index$ index.php [NC,L]
+RewriteRule ^login$ index.php?ctrl=login [NC,L]
+RewriteRule ^logout$ index.php?ctrl=logout [NC,L]
+RewriteRule ^loginsession$ index.php?ctrl=loginsession [NC,L]
+RewriteRule ^roles$ index.php?ctrl=roles [NC,L]
+RewriteRule ^tableroles$ index.php?ctrl=tableroles [NC,L]
+RewriteRule ^main$ index.php?ctrl=main [NC,L]
+RewriteRule ^home$ index.php?ctrl=home [NC,L]
+
+# RewriteRule ^no-access$ no_access.php [NC,L]
+
+
+
+
+
+
+
+
+
+###
+
+<ifModule mod_headers.c>
+Header set Access-Control-Allow-Origin: *
+</ifModule>
