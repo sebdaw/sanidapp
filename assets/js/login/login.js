@@ -1,6 +1,12 @@
 $(document).ready(function(){
     $(`#btn_login`).on('click',login);
+    $('input').on('keydown',send);
 });
+
+function send(event){
+    if (event.key === 'Enter')
+        login();
+}
 
 function login(){
     const url = $(`#form_login`).attr('action');
@@ -23,8 +29,8 @@ function login(){
     .fail(function(error) {
         $(`#spinner`).hide();
         let response = JSON.parse(error.responseText).msg;
+        $(`#error-log`).find('p').text(response);
         $(`#error-log`).slideDown(function(){
-            $(this).find('p').text(response);
             setTimeout(() => {
                 $(this).fadeOut();
             }, 3000);

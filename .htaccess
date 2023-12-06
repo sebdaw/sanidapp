@@ -16,10 +16,37 @@ RewriteRule ^index$ index.php [NC,L]
 RewriteRule ^login$ index.php?ctrl=login [NC,L]
 RewriteRule ^logout$ index.php?ctrl=logout [NC,L]
 RewriteRule ^loginsession$ index.php?ctrl=loginsession [NC,L]
+# ROLES
 RewriteRule ^roles$ index.php?ctrl=roles [NC,L]
 RewriteRule ^tableroles$ index.php?ctrl=tableroles [NC,L]
+RewriteRule ^role-form$ index.php?ctrl=roleform [NC,L]
+# USUARIOS
+RewriteRule ^users$ index.php?ctrl=users [NC,L]
+RewriteRule ^tableusers$ index.php?ctrl=tableusers [NC,L]
+RewriteRule ^user-form$ index.php?ctrl=userform [NC,L]
+# BLOQUES
+RewriteRule ^blocks$ index.php?ctrl=blocks [NC,L]
+RewriteRule ^tableblocks$ index.php?ctrl=tableblocks [NC,L]
+RewriteRule ^block-form$ index.php?ctrl=blockform [NC,L]
+# SECCIONES
+RewriteRule ^sections$ index.php?ctrl=sections [NC,L]
+RewriteRule ^tablesections$ index.php?ctrl=tablesections [NC,L]
+RewriteRule ^section-form$ index.php?ctrl=sectionform [NC,L]
+
+# GESTIÓN DE PERMISOS (ROLES)
+RewriteRule ^gpr$ index.php?ctrl=roles_permissions [NC,L]
+RewriteRule ^table-rp$ index.php?ctrl=tablerp [NC,L]
+
+
+
 RewriteRule ^main$ index.php?ctrl=main [NC,L]
 RewriteRule ^home$ index.php?ctrl=home [NC,L]
+
+
+
+
+RewriteRule ^test2$ ./src/templates/test-view.php [NC,L]
+
 
 # RewriteRule ^no-access$ no_access.php [NC,L]
 

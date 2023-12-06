@@ -23,6 +23,66 @@ $routes = [
         'method' => 'table',
         'params' => []
     ],
+    PATH_ROLE_FORM => [
+        'controller' => 'RolesController',
+        'method' => 'form',
+        'params' => []
+    ],
+    PATH_USERS => [
+        'controller' => 'UsersController',
+        'method' => 'main',
+        'params' => []
+    ],
+    PATH_USERS_TABLE => [
+        'controller' => 'UsersController',
+        'method' => 'table',
+        'params' => []
+    ],
+    PATH_USER_FORM => [
+        'controller' => 'UsersController',
+        'method' => 'form',
+        'params' => []
+    ],
+    PATH_BLOCKS => [
+        'controller' => 'BlocksController',
+        'method' => 'main',
+        'params' => []
+    ],
+    PATH_BLOCKS_TABLE => [
+        'controller' => 'BlocksController',
+        'method' => 'table',
+        'params' => []
+    ],
+    PATH_BLOCK_FORM => [
+        'controller' => 'BlocksController',
+        'method' => 'form',
+        'params' => []
+    ],
+    PATH_SECTIONS => [
+        'controller' => 'SectionsController',
+        'method' => 'main',
+        'params' => []
+    ],
+    PATH_SECTIONS_TABLE => [
+        'controller' => 'SectionsController',
+        'method' => 'table',
+        'params' => []
+    ],
+    PATH_SECTION_FORM => [
+        'controller' => 'SectionsController',
+        'method' => 'form',
+        'params' => []
+    ],
+    PATH_RP => [
+        'controller' => 'RolesPermissionsController',
+        'method' => 'main',
+        'params' => []
+    ],
+    PATH_RP_TABLE => [
+        'controller' => 'UsersController',
+        'method' => 'table',
+        'params' => []
+    ],
     PATH_FORM_LOGIN => [
         'controller' => 'LoginController',
         'method' => 'main',

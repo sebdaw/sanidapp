@@ -1,0 +1,19 @@
+.sections-table td.center {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sections-table {
+    margin-bottom: 1rem;
+}
+
+#button-box {
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 1rem;
+}

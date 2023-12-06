@@ -36,8 +36,6 @@ class PermissionController {
         return false;
     }
 
-
-
     public function getAllPermissions(int $idUser) : array {
         $permissions = [];
         $sections = $this->sdao->findAll(dto:null,page:ALL_PAGES);
@@ -76,7 +74,7 @@ class PermissionController {
                 $pbo->setSectionPermission(sp:$sp);
                 $type = $this->tdao->findById(id:$sp->getIdType());
                 $pbo->setType(type:$type);
-                $rolePermission = $this->rdao->find(idSection:$idSection,idSPT:$sp->getId());
+                $rolePermission = $this->rdao->find(idRole:$user->getIdRole(),idSection:$idSection,idSPT:$sp->getId());
                 $pbo->setRolePermission(rolePermission:$rolePermission);
                 $userPermission = $this->udao->find(idUser:$idUser,idSection:$idSection,idSPT:$sp->getId());
                 $pbo->setUserPermission(userPermission:$userPermission);

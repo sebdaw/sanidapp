@@ -5,6 +5,7 @@ class Block extends AbstractModel{
     private ?int $order;
     private int $timestamp;
     private ?int $idUpdater;
+    private int $numSections = 0;
 
     public function __construct(int $id,
                                 string $name,
@@ -16,6 +17,7 @@ class Block extends AbstractModel{
         $this->setOrder($order);
         $this->setTimestamp($timestamp);
         $this->setIdUpdater($idUpdater);
+
     }
 
     public function getId() : int {
@@ -56,6 +58,14 @@ class Block extends AbstractModel{
 
     public function setIdUpdater(?int $idUpdater) : void {
         $this->idUpdater = $idUpdater;
+    }
+
+    public function getNumSections() : int {
+        return $this->numSections;
+    }
+
+    public function setNumSections(int $numSections) : void {
+        $this->numSections = $numSections;
     }
 
     public function __toString() : string {

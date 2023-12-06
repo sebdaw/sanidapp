@@ -28,7 +28,8 @@
                     $img = URL_IMGS . $section->getIcon();
                     $url = $section->getPath();
                     $sname = ucfirst($section->getName());
-                    $selected = $url==$urlpath? 'selected' : null;
+                    $csname = !is_null($_section_permissions)? $_section_permissions->getSection()->getName() : null;
+                    $selected = strcasecmp($sname,$csname)==0? 'selected' : null;
                     echo <<<EOT
                         <li id="s-{$idSection}" class="side-nav-sections {$selected}" style="display:{$display};"><a href="{$url}"><img src="{$img}"><p>{$sname}</p></a></li>
                     EOT;

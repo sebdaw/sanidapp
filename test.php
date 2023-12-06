@@ -9,6 +9,6 @@ ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
 // var_dump($ctrl->getSectionPermissions(1,1));
 
-var_dump(PasswordHasher::hash('root'));
+var_dump(PasswordHasher::hash(''));
 
 ?>

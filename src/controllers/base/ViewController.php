@@ -1,7 +1,11 @@
 <?php
 abstract class ViewController extends BaseController{
 
-    public static function showView(?string $view=null){
+    public static function redirectToLogin(){
+        header('Location:' . PATH_FORM_LOGIN);
+    }
+
+    public static function showView(?string $view=null, array $data=[]){
         if (is_null($view) && !@file_exists(PATH_TEMPLATES . $view)){
             http_response_code(404);
             exit;

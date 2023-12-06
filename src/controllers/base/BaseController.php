@@ -1,15 +1,16 @@
 <?php
 abstract class BaseController {
     protected static ?int $id_section = null;
+    protected static ?DBConnection $connection = null;
     protected static ?PermissionController $pcontroller = null;
     protected static ?BlocksDAO $bdao = null;
     protected static ?SectionDAO $sdao = null;
 
     protected static function init(?DBConnection $connection=null){
-        $connection = is_null($connection)? new DBConnection() : $connection;
-        static::$pcontroller = new PermissionController(connection:$connection);
-        static::$bdao = new BlocksDAO(connection:$connection);
-        static::$sdao = new SectionDAO(connection:$connection);
+        static::$connection = is_null($connection)? new DBConnection() : $connection;
+        static::$pcontroller = new PermissionController(connection:static::$connection);
+        static::$bdao = new BlocksDAO(connection:static::$connection);
+        static::$sdao = new SectionDAO(connection:static::$connection);
     }
 
     protected static function hasAccessPermission(int $idUser) : bool {
@@ -23,6 +24,9 @@ abstract class BaseController {
     }
     protected static function hasDeletePermission(int $idUser) : bool {
         return static::hasPermission(idUser:$idUser,idType:DEL);
+    }
+    protected static function hasOrderPermission(int $idUser) : bool {
+        return static::hasPermission(idUser:$idUser,idType:ORD);
     }
 
     protected static function hasPermission(int $idUser, int $idType) : bool {

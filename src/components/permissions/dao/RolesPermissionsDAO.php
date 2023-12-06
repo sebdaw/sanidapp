@@ -12,8 +12,9 @@ class RolesPermissionsDAO extends AbstractDAO{
             }
     }
 
-    public function find(int $idSection, int $idSPT, bool $disconnect=false) : ?RolePermission {
+    public function find(int $idRole, int $idSection, int $idSPT, bool $disconnect=false) : ?RolePermission {
         $dto = new RolePermissionDTO();
+        $dto->setIdRole(idRole:$idRole);
         $dto->setIdSection(idSection:$idSection);
         $dto->setIdType(idType:$idSPT);
         $rows = $this->findAll(dto:$dto, disconnect:$disconnect);

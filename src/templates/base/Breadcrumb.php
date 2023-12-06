@@ -9,7 +9,7 @@ class Breadcrumb {
             $list[] = "<p><a href='{$link}' class='{$nolink}'>{$name}</a></p>";
         }
         $img = URL_IMGS . 'padlock.png';
-        return "<article id='breadcrumb'><img src='{$img}'>&nbsp;" . implode('&nbsp;&#8680;&nbsp;',$list) . "</article>";
+        return "<article id='breadcrumb'><img src='{$img}'><span>&nbsp;</span>" . implode('<span>&nbsp;&#8680;&nbsp;</span>',$list) . "</article>";
     }
 }
 ?>

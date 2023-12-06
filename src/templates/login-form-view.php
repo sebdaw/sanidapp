@@ -6,6 +6,7 @@
 <html lang="es">
 <head>
     <?php require_once PATH_TEMPLATES . 'base/html_head.php'?>
+    <link rel="stylesheet" href="<?=URL_CSS?>login/login.css">
     <script type="text/javascript" src="<?=URL_JS?>login/login.js"></script>
 </head>
 <body>

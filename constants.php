@@ -1,5 +1,6 @@
 <?php
     define ('ROOT',1);
+    define ('ROOT_ROLE',1);
     /* BASE DE DATOS ----------------------------------------------- */
     define ('DBMS','mysql');
     define ('HOST','localhost');
@@ -42,6 +43,7 @@
     define ('YYYYMMDD',1);
 
     /* SESIÓN DE USUARIO */
+    define ('ID_USER_SESSION','id_user_session');
     define ('USER_SESSION','user_session');
     define ('ROLE_SESSION','role_session');
     define ('PROFILES_SESSION','profiles_session');
@@ -54,6 +56,19 @@
     define ('PATH_HOME','home');
     define ('PATH_ROLES','roles');
     define ('PATH_ROLES_TABLE','tableroles');
+    define ('PATH_ROLE_FORM','roleform');
+    define ('PATH_USERS','users');
+    define ('PATH_USERS_TABLE','tableusers');
+    define ('PATH_USER_FORM','userform');
+    define ('PATH_BLOCKS','blocks');
+    define ('PATH_BLOCKS_TABLE','tableblocks');
+    define ('PATH_BLOCK_FORM','blockform');
+    define ('PATH_SECTIONS','sections');
+    define ('PATH_SECTIONS_TABLE','tablesections');
+    define ('PATH_SECTION_FORM','sectionblock');
+    define ('PATH_RP','roles_permissions');
+    define ('PATH_RP_TABLE','tablerp');
+
 
 
     /* TIPOS DE PERMISOS */
@@ -61,6 +76,11 @@
     define ('INS',2);
     define ('UPD',3);
     define ('DEL',4);
+    define ('ORD',5);
+
+    /* SUBTIPOS */
+    define('ORD_UP',501);
+    define('ORD_DOWN',502);
 
     setlocale(LC_CTYPE,"es_ES");
     date_default_timezone_set("Europe/Madrid");

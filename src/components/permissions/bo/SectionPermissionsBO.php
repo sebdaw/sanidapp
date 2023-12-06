@@ -52,11 +52,32 @@ class SectionPermissionsBO {
                 return $permission;
             }
         }
-        return [];
+        return null;
+    }
+
+    public function getPermissionByIdType(int $idType) : ?PermissionBO {
+        foreach($this->permissions as $permission){
+            $type = $permission->getType();
+            if ($type->getId() == $idType){
+                return $permission;
+            }
+        }
+        return null;
     }
  
     public function hasPermission(string $name) : bool {
         if (is_null($permission = $this->getPermissionByType(name:$name)))
+            return false;
+        $userPermission = $permission->getUserPermission();
+        $rolePermission = $permission->getRolePermission();
+
+        if (is_null($userPermission) || is_null($userPermission->isEnabled()))
+            return $rolePermission->isEnabled();
+        return $userPermission->isEnabled();
+    }
+
+    public function checkPermission(int $idType) : bool {
+        if (is_null($permission = $this->getPermissionByIdType($idType)))
             return false;
         $userPermission = $permission->getUserPermission();
         $rolePermission = $permission->getRolePermission();

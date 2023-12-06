@@ -15,13 +15,30 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="app-mobile-web-app-capable" content="yes">
 
+<script type="text/javascript">
+    const url_js = "<?=URL_JS?>";
+    const url_imgs = "<?=URL_IMGS?>";
+</script>
+
+<!-- swiper -->
+<link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- simple-switch -->
+<link rel="stylesheet" href="<?=URL_JS?>libs/simple-switch/css/SimpleSwitch.css">
+<script type="text/javascript" src="<?=URL_JS?>libs/simple-switch/js/SimpleSwitch.min.js"></script>
+
 <!-- TODO: favicons -->
 <link rel="icon" type="image/x-icon" href="<?=URL_IMGS . 'sanidapp-favicon.svg'?>">
 <link rel="stylesheet" href="<?=URL_CSS?>style.css">
 <link rel="stylesheet" href="<?=URL_CSS?>mediaquery.css">
-<!-- TODO: css y js para ventanas modales -->
 
+<!-- TODO: css y js para ventanas modales -->
+<link rel="stylesheet" href="<?=URL_JS?>libs/vm/vm.css">
+<script type="text/javascript" src="<?=URL_JS?>libs/vm/vm.js"></script>
+<!-- JQuery -->
 <script type="text/javascript" src="<?=URL_JS?>libs/jquery-3.7.1.min.js"></script>
 
-<!-- TODO: archivos javascript genéricos -->
+<!-- archivos javascript genéricos -->
+<script type="text/javascript" src="<?=URL_JS?>app.js"></script>
 <title>Sanidapp</title>

@@ -51,6 +51,7 @@ class SessionService {
             @session_start();
             //TODO: añadir a la variable de sessión los datos del usuario
             $profiles = self::$pctrl->getProfiles(idUser:$user->getId());
+            $_SESSION[ID_USER_SESSION] = $user->getId();
             $_SESSION[USER_SESSION] = $user;
             $_SESSION[ROLE_SESSION] = $role;
             $_SESSION[PROFILES_SESSION] = $profiles;
