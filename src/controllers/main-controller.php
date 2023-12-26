@@ -73,13 +73,23 @@ $routes = [
         'method' => 'form',
         'params' => []
     ],
-    PATH_RP => [
-        'controller' => 'RolesPermissionsController',
+    PATH_GPR => [
+        'controller' => 'RolePermissionController',
         'method' => 'main',
         'params' => []
     ],
-    PATH_RP_TABLE => [
-        'controller' => 'UsersController',
+    PATH_GPR_TABLE => [
+        'controller' => 'RolePermissionController',
+        'method' => 'table',
+        'params' => []
+    ],
+    PATH_GPU => [
+        'controller' => 'UserPermissionController',
+        'method' => 'main',
+        'params' => []
+    ],
+    PATH_GPU_TABLE => [
+        'controller' => 'UserPermissionController',
         'method' => 'table',
         'params' => []
     ],

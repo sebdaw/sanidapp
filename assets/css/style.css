@@ -228,6 +228,26 @@ main{
     padding: 1rem 2rem;
 }
 
+/* BUSCADOR */
+
+.searcher{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+    margin-bottom: .5rem;
+}
+
+.searcher>form{
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: .5rem;
+    row-gap: .5rem;
+}
 
 /* CONTROLES */
 
@@ -303,6 +323,15 @@ main{
     background-image: url('../imgs/circle-x_hover.svg');
 }
 
+.btn.icon {
+    padding-left: 20px;
+    height: 1.4rem;
+}
+
+.btn.icon:hover{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 /* TABLAS */
 
 .off{
@@ -387,16 +416,34 @@ table tr {
     background-color: white;
 }
 
+table td img {
+    width: 16px;
+    height: 16px;
+}
+
 /* FORMULARIOS */
+form{
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+select {
+    min-width: 150px;
+}
+
 .form-input {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    min-width: 170px;
 }
 
-.form-input input {
+.form-input input, .form-input select {
     border-radius: 2px;
     padding: 2px 10px;
     border: 1px solid darkslategray;
@@ -445,6 +492,15 @@ option:hover{
     background-color: red !important;
 }
 
+.button-box{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 /* GENÉRICOS */
 
 .w100 {width:100% !important;}
@@ -468,11 +524,24 @@ option:hover{
 .w15 {width:15% !important;}
 .w10 {width:10% !important;}
 
+
+.pd-h-1{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .pointer {cursor:pointer;}
 .no-select {user-select: none;}
 
 .ta-center {text-align: center;}
 .ta-left {text-align:left;}
+
+.center{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

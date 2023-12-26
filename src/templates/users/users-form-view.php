@@ -23,6 +23,9 @@
                 'link' => 'role-form']
             ];
             echo Breadcrumb::display($breadcrumbs);
+
+            $user_enabled = (isset($data['user'])? $data['user']->isActive() : null);
+            $user_enabled = is_null($user_enabled)? null : ($user_enabled? 'checked' : null);
             ?>
             
             <section class="form-content">
@@ -45,12 +48,12 @@
                     </div>
                     <?php if ($data['action']==UPD){ ?>
                         <label class="input-switch">
-                            <input type="checkbox" data-type="simple-switch" id="user-active" value="1" <?=(isset($data['user'])? $data['user']->isActive() : null)?>>
+                            <input type="checkbox" data-type="simple-switch" id="user-active" value="1" <?=$user_enabled?>>
                             <span>HABILITADO</span>
                         </label>
                     <?php } ?>
                 </form>
-                <article id="button-box">
+                <article class="button-box pd-h-1">
                     <div class="btn btn-save" onclick="save(<?=$data['action']?>,<?=(isset($data['user'])? $data['user']->getId() : null)?>)">GUARDAR</div>
                 </article>
             </section>            

@@ -14,6 +14,13 @@ class UsersDAO extends AbstractDAO{
         return $user;
     }
 
+    public function findByRole(int $idRole, int $order=1, int $page=1, int $pageSize=DEFAULT_PAGESIZE, bool $disconnect=false) : ?array {
+        $dto = new UserDTO;
+        $dto->setIdRole(idRole:$idRole);
+        $users = $this->findAll(dto:$dto,page:$page,pageSize:$pageSize,disconnect:$disconnect,order:$order);
+        return $users;
+    }
+
     protected function order(string &$sql, int $order) : void {
         switch($order){
             case 1:

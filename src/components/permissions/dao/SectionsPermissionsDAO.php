@@ -18,6 +18,14 @@ class SectionsPermissionsDAO extends AbstractDAO{
         return $this->findAll(dto:$dto,page:ALL_PAGES,disconnect:$disconnect);
     }
 
+    public function getSectionPermission(int $idSection, int $idType, bool $disconnect=false) : ?SectionPermission {
+        $dto = new SectionPermissionDTO;
+        $dto->setIdSection(idSection:$idSection);
+        $dto->setIdType(idType:$idType);
+        $results = $this->findAll(dto:$dto,page:ALL_PAGES,disconnect:$disconnect);
+        return array_shift($results);
+    }
+
     public function mapToModel(array $data) : SectionPermission {
         $id = $data['id'];
         $idType = $data['id_permission_type'];

@@ -54,7 +54,7 @@ class UserPermissionDTO extends AbstractDTO {
         return $this->enabled;
     }
 
-    public function setEnabled(bool $enabled) : void {
+    public function setEnabled(?bool $enabled) : void {
         $this->enabled->setValue($enabled);
     }
 

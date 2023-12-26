@@ -13,7 +13,9 @@
     <?php
         if (!isset($_section_permissions))
             die;
-        $bdao = new BlocksDAO;
+        $connection = new DBConnection;
+        $bdao = new BlocksDAO(connection:$connection);
+        $udao = new UsersDAO(connection:$connection);
 
         $blocks = $bdao->getAll(dto:null,page:ALL_PAGES);
         //TODO:añadir controles de paginacion
@@ -38,7 +40,13 @@
             $off_update = !$upd? 'off' : null;
             $off_orderup = !($ord && $countBlocks>1 && $i>0)? 'off' : null;
             $off_orderdown = !($ord && $countBlocks && $i<($countBlocks-1))? 'off' : null;
-            $gearimg = URL_IMGS . "gear.svg";
+            $audimg = URL_IMGS . "audit.svg";
+
+            $idUpdater = $block->getIdUpdater()??0;
+            $updater = $udao->findById(id:$idUpdater);
+            $updater = (fn($n):?User=>$n)($updater);
+            $updater_name = !is_null($updater)? $updater->getUsername() : '';
+
             echo <<<EOT
                 <tr id="block-{$id}" style="display:none;">
                     <td class="row-buttons no-select">
@@ -51,7 +59,7 @@
                     <td class="ta-center"><span>{$id}</span></td>
                     <td><span>{$name}</span></td>
                     <td class="ta-center"><span>{$numSections}</span></td>
-                    <td class="center no-select"><img class="pointer" src="{$gearimg}" title="{$date}"></td>
+                    <td class="center no-select"><img class="pointer" src="{$audimg}" title="({$updater_name}) {$date}"></td>
                 </tr>
             EOT;
         }

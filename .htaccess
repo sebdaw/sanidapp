@@ -30,12 +30,16 @@ RewriteRule ^tableblocks$ index.php?ctrl=tableblocks [NC,L]
 RewriteRule ^block-form$ index.php?ctrl=blockform [NC,L]
 # SECCIONES
 RewriteRule ^sections$ index.php?ctrl=sections [NC,L]
-RewriteRule ^tablesections$ index.php?ctrl=tablesections [NC,L]
+RewriteRule ^tablesections$ index.php?ctrl=tablesections [QSA,NC,L]
 RewriteRule ^section-form$ index.php?ctrl=sectionform [NC,L]
 
 # GESTIÓN DE PERMISOS (ROLES)
-RewriteRule ^gpr$ index.php?ctrl=roles_permissions [NC,L]
-RewriteRule ^table-rp$ index.php?ctrl=tablerp [NC,L]
+RewriteRule ^gpr$ index.php?ctrl=gpr [NC,L]
+RewriteRule ^table-gpr$ index.php?ctrl=tablegpr [QSA,NC,L]
+
+#GESTIÓN DE PERMISOS (USUARIOS)
+RewriteRule ^gpu$ index.php?ctrl=gpu [NC,L]
+RewriteRule ^table-gpu$ index.php?ctrl=tablegpu [QSA,NC,L]
 
 
 

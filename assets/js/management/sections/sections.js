@@ -3,8 +3,9 @@ $(document).ready(function(){
     load();
 });
 
-function load(){
-    const url = `tablesections?page=1`;
+function load(block=0){
+    const url = `tablesections?page=0&block=${block}`;
+    $(`#results`).empty();
     $(`#results`).load(url,function(){
         $(`tbody tr`).each(function(index){
             let duration = index * 100;
@@ -14,9 +15,16 @@ function load(){
 }
 
 
+function search(){
+  const id = $(`#search_block`).val();
+  load(id);
+}
+
+
 
 function deleteSection(id){
     // vm.loading(true);
+    const search_block = $(`#block`).val();
     const data = {
         action: $(`#delconst`).val(),
         id: parseInt(id)
@@ -34,16 +42,11 @@ function deleteSection(id){
         setTimeout(()=>{
           vm.info(response.msg);
           setTimeout(function(){
-            load();
+            load(search_block);
           },1500);
         },500);
       })
       .fail(function(error) {
-        // vm.loading(false,function(){
-        //   let response = JSON.parse(error.responseText);
-        //   vm.error(response.msg);
-        // });
-        // vm.loading(false);
       });
 }
 
@@ -65,16 +68,12 @@ $.ajax({
     vm.loading(false,()=>{load()});
   })
   .fail(function(error) {
-    // vm.loading(false,function(){
-    //   let response = JSON.parse(error.responseText);
-    //   vm.error(response.msg);
-    // });
-    // vm.loading(false);
   });
 }
 
-function newSection(){
+function newSection(idBlock=null){
     vm.loading(true);
+    $(`#form-ns`).find(`#block`).val((idBlock!=null? idBlock:''));
     $('#form-ns').submit();
 }
 

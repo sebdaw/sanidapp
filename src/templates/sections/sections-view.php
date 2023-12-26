@@ -25,13 +25,25 @@
             ];
             echo Breadcrumb::display($breadcrumbs);
             ?>
-            <article id="button-box">
+            <article class="button-box">
                 <form id="form-ns" action="section-form" method="POST" style="display:block;">
                     <input type="hidden" name="id" id="id" value="">
+                    <input type="hidden" name="block" id="block" value="">
                 </form>
                 <div class="btn btn-plus" onclick="newSection()">AÑADIR SECCIÓN</div>
             </article>
-            
+            <article class="searcher">
+                <?php
+                $bdao = new BlocksDAO;
+                $blocks = array_map(function($n){return [$n->getId(),ucfirst($n->getName())];},$bdao->findAll(dto:null));
+                ?>
+                <form>
+                    <div class="form-input w20">
+                        <label for="search_block">BLOQUE</label>
+                        <?=UX::combo(name:'search_block',options:$blocks,properties:["onchange='search()'"])?>
+                    </div>
+                </form>
+            </article>
             <article id="results"></article>
         </article>
         

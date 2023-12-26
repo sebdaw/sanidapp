@@ -191,7 +191,9 @@ class UsersController extends ViewController {
 
         $active = (isset($data['active']) && is_bool($data['active']))? boolval($data['active']) : null;        
 
-        $password = (isset($data['password']) && is_string($data['password']) && mb_strlen(trim($data['password']))>0)? trim($data['password']) : null;
+        if (!isset($data['password']) || !is_string($data['password']))
+            return false;
+        $password = (mb_strlen(trim($data['password']))>0)? trim($data['password']) : null;
         $password_confirmation = (isset($data['password_confirmation']) && is_string($data['password_confirmation']))? trim($data['password_confirmation']) : null;
         //TODO
         if (!is_null($password) && ($password!=$password_confirmation))

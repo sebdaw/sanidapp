@@ -25,7 +25,7 @@
             ];
             echo Breadcrumb::display($breadcrumbs);
             ?>
-            <article id="button-box">
+            <article class="button-box">
                 <form id="form-nb" action="block-form" method="POST" style="display:block;">
                     <input type="hidden" name="id" id="id" value="">
                 </form>

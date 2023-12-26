@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <?php require_once PATH_TEMPLATES . 'base/html_head.php';?>
-    <!-- <link rel="stylesheet" href="<?=URL_CSS?>management/roles/roles.css"> -->
+    <link rel="stylesheet" href="<?=URL_CSS?>management/roles/roles.css">
     <script type="text/javascript" src="<?=URL_JS?>management/roles/roles-form.js"></script>
 </head>
 <body>
@@ -32,18 +32,11 @@
                         <input type="text" id="rolename" value="<?=(isset($data['role'])? $data['role']->getName() : '')?>">
                     </div>
                 </form>
-                <article id="button-box">
+                <article class="button-box pd-h-1">
                     <div class="btn btn-save" onclick="save(<?=$data['action']?>,<?=(isset($data['role'])? $data['role']->getId() : null)?>)">GUARDAR</div>
                 </article>
             </section>
-
-            <!-- <label>
-            <input type="checkbox" data-type="simple-switch">
-            <span>JavaScript</span>
-            </label> -->
         </article>
-        
-        
     </main>
 </body>
 </html>

@@ -1,4 +1,4 @@
-#users-table td.center {
+#gpu-table td.center {
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -14,10 +14,6 @@
     margin-bottom: 1rem;
 }
 
-#form_users{
-    display:flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    row-gap: .5rem;
+#gpu-table{
+    margin-bottom: 1rem;
 }

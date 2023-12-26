@@ -1,6 +1,7 @@
 <?php
     define ('ROOT',1);
     define ('ROOT_ROLE',1);
+    define ('BLOCK_MNG',1);
     /* BASE DE DATOS ----------------------------------------------- */
     define ('DBMS','mysql');
     define ('HOST','localhost');
@@ -65,9 +66,11 @@
     define ('PATH_BLOCK_FORM','blockform');
     define ('PATH_SECTIONS','sections');
     define ('PATH_SECTIONS_TABLE','tablesections');
-    define ('PATH_SECTION_FORM','sectionblock');
-    define ('PATH_RP','roles_permissions');
-    define ('PATH_RP_TABLE','tablerp');
+    define ('PATH_SECTION_FORM','sectionform');
+    define ('PATH_GPR','gpr');
+    define ('PATH_GPR_TABLE','tablegpr');
+    define ('PATH_GPU','gpu');
+    define ('PATH_GPU_TABLE','tablegpu');
 
 
 
@@ -77,6 +80,7 @@
     define ('UPD',3);
     define ('DEL',4);
     define ('ORD',5);
+    define ('API',6);
 
     /* SUBTIPOS */
     define('ORD_UP',501);

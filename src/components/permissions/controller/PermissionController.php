@@ -1,6 +1,7 @@
 <?php
 class PermissionController {
     private ?UsersDAO $usdao = null;
+    private ?RolesDAO $rodao = null;
     private ?BlocksDAO $bdao = null;
     private ?SectionDAO $sdao = null;
     private ?SectionsPermissionsDAO $spdao = null;
@@ -10,6 +11,7 @@ class PermissionController {
 
     public function __construct(?DBConnection $connection=null){
         $this->usdao = new UsersDAO(connection:$connection);
+        $this->rodao = new RolesDAO(connection:$connection);
         $this->bdao = new BlocksDAO(connection:$connection);
         $this->sdao = new SectionDAO(connection:$connection);
         $this->spdao = new SectionsPermissionsDAO(connection:$connection);
@@ -85,6 +87,42 @@ class PermissionController {
         return $spbo;
     }
 
+    public function getSectionRolePermissions(int $idRole, int $idSection) : ?SectionPermissionsBO {
+        $role = $this->rodao->findById(id:$idRole);
+        if (is_null($role))
+            return null;
+        $role = (fn($n):?Role=>$n)($role);
+
+        $section = $this->sdao->findById(id:$idSection);
+        if (is_null($section))
+            return null;
+        $section = (fn($obj):Section=>$obj)($section);
+
+        $block = $this->bdao->findById(id:$section->getIdBlock());
+        if (is_null($block))
+            return null;
+        $block = (fn($obj):Block=>$obj)($block);
+        $spbo = null;
+        $sectionPermissions = $this->spdao->getSectionPermissions(idSection:$idSection);
+        if (count($sectionPermissions)>0){
+            $spbo = new SectionPermissionsBO;
+            $spbo->setBlock($block);
+            $spbo->setSection($section);
+            $spbo->setUser(null);
+            foreach($sectionPermissions as $sp){
+                $pbo = new PermissionBO;
+                $pbo->setSectionPermission(sp:$sp);
+                $type = $this->tdao->findById(id:$sp->getIdType());
+                $pbo->setType(type:$type);
+                $rolePermission = $this->rdao->find(idRole:$role->getId(),idSection:$idSection,idSPT:$sp->getId());
+                $pbo->setRolePermission(rolePermission:$rolePermission);
+                $pbo->setUserPermission(userPermission:null);
+                $spbo->addPermission(permission:$pbo);
+            }
+        }
+        return $spbo;
+    }
+
     public function hasPermission(int $idUser, int $idSection, int $idType) : bool {
         $spbo = $this->getSectionPermissions(idUser:$idUser,idSection:$idSection);
         if (!is_null($spbo)){
@@ -93,12 +131,12 @@ class PermissionController {
                     $rolePermission = $permission->getRolePermission();
                     $userPermission = $permission->getUserPermission();
                     if (is_null($userPermission) || is_null($userPermission->isEnabled()))
-                        return $rolePermission->isEnabled();
+                        return !is_null($rolePermission) && $rolePermission->isEnabled();
                     return $userPermission->isEnabled();
                 }
             }
         }
         return false;
-    }
+    }    
 }
 ?>

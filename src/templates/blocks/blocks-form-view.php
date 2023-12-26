@@ -32,7 +32,7 @@
                         <input type="text" id="name" value="<?=(isset($data['block'])? $data['block']->getName() : '')?>">
                     </div>
                 </form>
-                <article id="button-box">
+                <article class="button-box pd-h-1">
                     <div class="btn btn-save" onclick="save(<?=$data['action']?>,<?=(isset($data['block'])? $data['block']->getId() : null)?>)">GUARDAR</div>
                 </article>
             </section>            

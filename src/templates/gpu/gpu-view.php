@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <?php require_once PATH_TEMPLATES . 'base/html_head.php';?>
-    <link rel="stylesheet" href="<?=URL_CSS?>management/gpr/gpr.css">
-    <script type="text/javascript" src="<?=URL_JS?>management/gpr/gpr.js"></script>
+    <link rel="stylesheet" href="<?=URL_CSS?>management/gpu/gpu.css">
+    <script type="text/javascript" src="<?=URL_JS?>management/gpu/gpu.js"></script>
 </head>
 <body>
     <?php require_once PATH_TEMPLATES . 'base/top-nav.php';?>
@@ -49,7 +49,11 @@
                     </div>
                     <div class="form-input w20">
                         <label for="search_roles">ROL</label>
-                        <?=UX::combo(name:'search_roles',options:$roles,properties:[])?>
+                        <?=UX::combo(name:'search_roles',options:$roles,properties:["onchange='loadUsers()'"])?>
+                    </div>
+                    <div class="form-input w20">
+                        <label for="search_users">USUARIO</label>
+                        <?=UX::combo(name:'search_users',options:[],properties:[])?>
                     </div>
                     <div style="padding:0 1rem;align-self:flex-end;">
                         <div class="btn" onclick="search()">BUSCAR</div>

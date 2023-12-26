@@ -45,6 +45,16 @@ class SectionPermissionsBO {
         $this->permissions[] = $permission;
     }
 
+    public function getRolePermission(int $id) : ?PermissionBO {
+        foreach($this->permissions as $permission){
+            $rp = $permission->getRolePermission();
+            if (!is_null($rp) && ($id == $rp->getId())){
+                return $permission;
+            }
+        }
+        return null;
+    }
+
     public function getPermissionByType(string $name) : ?PermissionBO {
         foreach($this->permissions as $permission){
             $type = $permission->getType();
@@ -63,6 +73,15 @@ class SectionPermissionsBO {
             }
         }
         return null;
+    }
+
+    public function supportsType(int $idType) : bool {
+        foreach($this->permissions as $permission){
+            $type = $permission->getType();
+            if ($type->getId() == $idType)
+                return true;
+        }
+        return false;
     }
  
     public function hasPermission(string $name) : bool {
@@ -83,7 +102,7 @@ class SectionPermissionsBO {
         $rolePermission = $permission->getRolePermission();
 
         if (is_null($userPermission) || is_null($userPermission->isEnabled()))
-            return $rolePermission->isEnabled();
+            return !is_null($rolePermission) && $rolePermission->isEnabled();
         return $userPermission->isEnabled();
     }
 
@@ -91,11 +110,11 @@ class SectionPermissionsBO {
         $type = $permission->getType();
         if (is_null($type))
             return false;
-        $rolePermission = $permission->getRolePermission();
-        if (is_null($rolePermission))
-            return false;
-        if ($this->section->getId()!=$rolePermission->getIdSection())
-            return false;
+        // $rolePermission = $permission->getRolePermission();
+        // if (is_null($rolePermission))
+            // return false;
+        // if ($this->section->getId()!=$rolePermission->getIdSection())
+        //     return false;
         return true;
     }
 }
