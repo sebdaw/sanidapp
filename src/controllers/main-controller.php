@@ -1,12 +1,18 @@
 <?php
 //TODO: definir constantes y rutas
-$ctrl = (isset($_REQUEST[PATH_VAR_CTRL]) && (mb_strlen(trim($_REQUEST[PATH_VAR_CTRL])) != 0))? trim($_REQUEST[PATH_VAR_CTRL]) : PATH_HOME;
+$ctrl = (isset($_REQUEST[PATH_VAR_CTRL]) && (mb_strlen(trim($_REQUEST[PATH_VAR_CTRL])) != 0))? trim($_REQUEST[PATH_VAR_CTRL]) : PATH_WEB;
 
 $routes = [
     'main' => [
         'controller' => 'ViewController',
         'method' => 'showView',
         'params' => 'main-view.php'
+    ],
+    
+    PATH_WEB => [
+        'controller' => 'HomeController',
+        'method' => 'web',
+        'params' => []
     ],
     PATH_HOME => [
         'controller' => 'HomeController',
@@ -93,6 +99,24 @@ $routes = [
         'method' => 'table',
         'params' => []
     ],
+    PATH_CENTERS => [
+        'controller' => 'CentersController',
+        'method' => 'main',
+        'params' => []
+    ],
+    PATH_CENTERS_TABLE => [
+        'controller' => 'CentersController',
+        'method' => 'table',
+        'params' => []
+    ],
+    PATH_CENTER_FORM => [
+        'controller' => 'CentersController',
+        'method' => 'form',
+        'params' => []
+    ],
+
+
+
     PATH_FORM_LOGIN => [
         'controller' => 'LoginController',
         'method' => 'main',
@@ -108,6 +132,7 @@ $routes = [
         'method' => 'logout',
         'params' => []
     ]
+
 ];
 
 $ctrl = array_key_exists($ctrl,$routes)? $ctrl : PATH_HOME;

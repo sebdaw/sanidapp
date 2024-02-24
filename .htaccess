@@ -16,31 +16,52 @@ RewriteRule ^index$ index.php [NC,L]
 RewriteRule ^login$ index.php?ctrl=login [NC,L]
 RewriteRule ^logout$ index.php?ctrl=logout [NC,L]
 RewriteRule ^loginsession$ index.php?ctrl=loginsession [NC,L]
+RewriteRule ^web$ index.php?ctrl=web [NC,L]
+
+# API 
+    RewriteRule ^api/communities/?$ api/endpoints.php [NC,L]
+    RewriteRule ^api/communities/([0-9]+)$ api/endpoints.php?c=$1 [NC,L]
+    RewriteRule ^api/communities/([0-9]+)/provinces/?$ api/endpoints.php?c=$1 [NC,L]
+    RewriteRule ^api/communities/([0-9]+)/provinces/([0-9]+)$ api/endpoints.php?c=$1&p=$2 [NC,L]
+    RewriteRule ^api/communities/([0-9]+)/provinces/([0-9]+)/towns$ api/endpoints.php?c=$1&p=$2 [NC,L]
+
+
+# BLOQUE GESTIÓN
+
+    # ROLES
+    RewriteRule ^roles$ index.php?ctrl=roles [NC,L]
+    RewriteRule ^tableroles$ index.php?ctrl=tableroles [NC,L]
+    RewriteRule ^role-form$ index.php?ctrl=roleform [NC,L]
+    # USUARIOS
+    RewriteRule ^users$ index.php?ctrl=users [NC,L]
+    RewriteRule ^tableusers$ index.php?ctrl=tableusers [NC,L]
+    RewriteRule ^user-form$ index.php?ctrl=userform [NC,L]
+    # BLOQUES
+    RewriteRule ^blocks$ index.php?ctrl=blocks [NC,L]
+    RewriteRule ^tableblocks$ index.php?ctrl=tableblocks [NC,L]
+    RewriteRule ^block-form$ index.php?ctrl=blockform [NC,L]
+    # SECCIONES
+    RewriteRule ^sections$ index.php?ctrl=sections [NC,L]
+    RewriteRule ^tablesections$ index.php?ctrl=tablesections [QSA,NC,L]
+    RewriteRule ^section-form$ index.php?ctrl=sectionform [NC,L]
+
+    # GESTIÓN DE PERMISOS (ROLES)
+    RewriteRule ^gpr$ index.php?ctrl=gpr [NC,L]
+    RewriteRule ^table-gpr$ index.php?ctrl=tablegpr [QSA,NC,L]
+
+    #GESTIÓN DE PERMISOS (USUARIOS)
+    RewriteRule ^gpu$ index.php?ctrl=gpu [NC,L]
+    RewriteRule ^table-gpu$ index.php?ctrl=tablegpu [QSA,NC,L]
+
+# BLOQUE CENTROS MÉDICOS
+
 # ROLES
-RewriteRule ^roles$ index.php?ctrl=roles [NC,L]
-RewriteRule ^tableroles$ index.php?ctrl=tableroles [NC,L]
-RewriteRule ^role-form$ index.php?ctrl=roleform [NC,L]
-# USUARIOS
-RewriteRule ^users$ index.php?ctrl=users [NC,L]
-RewriteRule ^tableusers$ index.php?ctrl=tableusers [NC,L]
-RewriteRule ^user-form$ index.php?ctrl=userform [NC,L]
-# BLOQUES
-RewriteRule ^blocks$ index.php?ctrl=blocks [NC,L]
-RewriteRule ^tableblocks$ index.php?ctrl=tableblocks [NC,L]
-RewriteRule ^block-form$ index.php?ctrl=blockform [NC,L]
-# SECCIONES
-RewriteRule ^sections$ index.php?ctrl=sections [NC,L]
-RewriteRule ^tablesections$ index.php?ctrl=tablesections [QSA,NC,L]
-RewriteRule ^section-form$ index.php?ctrl=sectionform [NC,L]
+    RewriteRule ^centers$ index.php?ctrl=centers [NC,L]
+    RewriteRule ^tablecenters$ index.php?ctrl=tablecenters [NC,L]
+    RewriteRule ^center-form$ index.php?ctrl=centerform [NC,L]
 
-# GESTIÓN DE PERMISOS (ROLES)
-RewriteRule ^gpr$ index.php?ctrl=gpr [NC,L]
-RewriteRule ^table-gpr$ index.php?ctrl=tablegpr [QSA,NC,L]
 
-#GESTIÓN DE PERMISOS (USUARIOS)
-RewriteRule ^gpu$ index.php?ctrl=gpu [NC,L]
-RewriteRule ^table-gpu$ index.php?ctrl=tablegpu [QSA,NC,L]
-
+# SERVIR ARCHIVOS
 
 
 RewriteRule ^main$ index.php?ctrl=main [NC,L]

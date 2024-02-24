@@ -16,7 +16,7 @@
     define ('ALL_PAGES',0);
 
     /* RUTAS ------------------------------------------------------- */
-    define ('PROJECT_PATH',$_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['SCRIPT_NAME']).'/');
+    @define ('PROJECT_PATH',$_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['SCRIPT_NAME']).'/');
     define ('PATH_SRC',PROJECT_PATH . 'src/');
     define ('PATH_COMPONENTS',PATH_SRC . 'components/');
     define ('PATH_CONTROLLERS',PATH_SRC . 'controllers/');
@@ -55,6 +55,7 @@
     define ('PATH_LOGIN','loginsession');
     define ('PATH_LOGOUT','logout');
     define ('PATH_HOME','home');
+    define ('PATH_WEB','web');
     define ('PATH_ROLES','roles');
     define ('PATH_ROLES_TABLE','tableroles');
     define ('PATH_ROLE_FORM','roleform');
@@ -72,6 +73,10 @@
     define ('PATH_GPU','gpu');
     define ('PATH_GPU_TABLE','tablegpu');
 
+    define ('PATH_CENTERS','centers');
+    define ('PATH_CENTERS_TABLE','tablecenters');
+    define ('PATH_CENTER_FORM','centerform');
+
 
 
     /* TIPOS DE PERMISOS */
@@ -83,11 +88,42 @@
     define ('API',6);
 
     /* SUBTIPOS */
-    define('ORD_UP',501);
-    define('ORD_DOWN',502);
+    define ('ORD_UP',501);
+    define ('ORD_DOWN',502);
 
     setlocale(LC_CTYPE,"es_ES");
     date_default_timezone_set("Europe/Madrid");
-    mb_internal_encoding("UTF-8")
+    mb_internal_encoding("UTF-8");
+
+    /* SUBIDA DE FICHEROS */
+    define ('K_EXT',0);
+    define ('K_CAT',1);
+    define ('K_REN',2);
+    define ('V_DOC',0);
+    define ('V_COM',1);
+    define ('V_AUD',2);
+    define ('V_VID',3);
+    define ('V_IMG',4);
+
+    define ('CE_UPLOAD_ERR_NO_MATCHING_MIME',0);
+    define ('CE_UPLOAD_ERR_NO_EXTENSION',1);
+    define ('CE_UPLOAD_ERR_NO_SUPPORTED',2);
+    define ('CE_UPLOAD_ERR_NO_MATCHING_EXT',3);
+    define ('CE_UPLOAD_ERR_SIZE_OVERFLOW',4);
+    define ('CE_UPLOAD_ERR_NAME_GEN',5);
+    define ('CE_UPLOAD_ERR_SAVING_FILES',6);
+
+    /* EMAIL */
+    define ('EMAIL_DEBUG_MODE','off');
+    define ('EMAIL_MESSAGE_TYPES','html');
+    define ('EMAIL_DEBUG_OUTPUTS','error_log');
+    define ('EMAIL_SMTP_SECURE','tls');
+    define ('EMAIL_HOST', 'smtp-mail.outlook.com');
+    define ('EMAIL_PORT','587');
+    define ('EMAIL_USER_SMTP','sanidapp@outlook.es');
+    define ('EMAIL_PASSWORD_SMTP','skeler2024');
+    define ('EMAIL_REPLY','sanidapp@outlook.es');
+    
+
 
 ?>

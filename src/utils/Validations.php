@@ -12,5 +12,12 @@ class Validations {
     public static function isFloat(mixed $num) : bool {
         return is_numeric($num) && !static::isInteger($num);
     }
+
+    public static function isNumericArray(array $arr) : bool {
+        $keys = array_filter(array_keys($arr),function($n){
+            return !static::isInteger($n);
+        });
+        return empty($keys);
+    }
 }
 ?>

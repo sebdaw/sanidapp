@@ -1,5 +1,5 @@
 <?php
-class TownsDAO extends AbstractDAO{
+class TownDAO extends AbstractDAO{
 
     public function __construct(?DBConnection $connection=null, ?DBConnectionSettings $settings=null){
         parent::__construct(tablename:'loc_towns',dtoname:'TownDTO',connection:$connection,settings:$settings);

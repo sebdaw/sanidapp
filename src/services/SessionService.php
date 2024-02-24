@@ -4,7 +4,7 @@ class SessionService {
     private static ?RolesDAO $rdao = null;
     private static ?ProfileController $pctrl = null;
     private const DEFAULT_SESSION_NAME = 'PHPSESSID';
-    private const LIFETIME = 600; // 5 minutos
+    private const LIFETIME = 1200; // 5 minutos
     private const PATH = '/';
     private const DOMAIN = 'localhost';
 

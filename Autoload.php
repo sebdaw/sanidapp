@@ -46,6 +46,32 @@ class Autoload {
         static::$locations[] = PATH_COMPONENTS . 'profiles/dto/';
         static::$locations[] = PATH_COMPONENTS . 'profiles/models/';
         static::$locations[] = PATH_COMPONENTS . 'profiles/controller/';
+        static::$locations[] = PATH_COMPONENTS . 'media/';
+        static::$locations[] = PATH_COMPONENTS . 'media/bo/';
+        static::$locations[] = PATH_COMPONENTS . 'media/dao/';
+        static::$locations[] = PATH_COMPONENTS . 'media/dto/';
+        static::$locations[] = PATH_COMPONENTS . 'media/models/';
+        static::$locations[] = PATH_COMPONENTS . 'media/controller/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-cs/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-cs/bo/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-cs/dao/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-cs/dto/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-cs/models/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-cs/controller/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-staff/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-staff/bo/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-staff/dao/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-staff/dto/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-staff/models/';
+        static::$locations[] = PATH_COMPONENTS . 'medical-staff/controller/';
+        static::$locations[] = PATH_COMPONENTS . 'patients/';
+        static::$locations[] = PATH_COMPONENTS . 'patients/bo/';
+        static::$locations[] = PATH_COMPONENTS . 'patients/dao/';
+        static::$locations[] = PATH_COMPONENTS . 'patients/dto/';
+        static::$locations[] = PATH_COMPONENTS . 'patients/models/';
+        static::$locations[] = PATH_COMPONENTS . 'patients/controller/';
+        
+
 
 
         static::$locations[] = PATH_CONTROLLERS . 'base/';

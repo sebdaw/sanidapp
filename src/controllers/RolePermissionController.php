@@ -135,6 +135,8 @@ class RolePermissionController extends ViewController {
 
             switch($action){
             case INS:
+                // Hay que pasar el id del permiso de la sección, no del tipo de permiso
+                $idType = $pbo->getSectionPermission()->getId();
                 if (!static::newPermission(idType:$idType,idRole:$idRole,idSection:$idSection,rpdao:$rpdao,beginTransaction:false,commit:false))
                     return false;
                 break;

@@ -30,7 +30,7 @@ class ProvinceDTO extends AbstractDTO {
         return $this->idCommunity;
     }
 
-    public function setIdCountry(?int $idCommunity) : void {
+    public function setIdCommunity(?int $idCommunity) : void {
         $this->idCommunity->setValue($idCommunity);
     }
 

@@ -1,0 +1,193 @@
+:root{
+    --h-header: 70px;
+    --color-body: lightgray;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-body);
+}
+
+header{
+    width: 100%;
+    height: var(--h-header);
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    background-color: var(--bkg-dark);
+}
+
+header a{
+  color:white;
+  font-size: 12px;
+  padding-right: 10px;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+header a:link{color:white;}
+header a:visited{color:white;}
+header a:hover{color: var(--btn-color-hover);}
+header a:active{color: var(--btn-color-hover);}
+
+main{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(23, 23, 23);
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    row-gap: 10px;
+}
+
+#header-logo{
+    height: 90%;
+    width: auto;
+}
+
+
+.imgcar{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 99;
+  }
+
+  .divcar{
+    width: 100%;
+    height: 100%;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .txt-overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height: 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .txt-overlay>p{
+    z-index: 101;
+    font-size: 1rem;
+    color:white;
+  }
+
+  #centers-article:before{
+    clear:both;
+  }
+  #centers-article{
+    width:90%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    column-gap: 10px;
+    
+  }
+
+  #centers-article>div{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 1px 4px 2px rgba(200,200,200,1);
+    box-shadow: 2px 1px 4px 2px rgba(200,200,200,1);
+    margin-bottom: 40px;
+    padding: 24px;
+  }
+
+  #introduccion{
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    row-gap: 8px;
+    margin-bottom: 2rem;
+  }
+
+  #introduccion>h1{
+    color:white;
+    font-size: 2rem;
+  }
+
+  #introduccion>p{
+    color:white;
+    text-align: center;
+  }
+
+  #servicios{
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .servicio{
+    width: 90%;
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .servicio img{
+    width: 32px;
+    height: 32px;
+  }
+
+  #mapa{
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  #mapa>iframe{
+    width: 100%;
+  }
