@@ -31,6 +31,7 @@
 
     $protocol = 'http://';
     $domain = 'localhost/sanidapp/';
+    define ('URL_BASE',"{$protocol}{$domain}");
     define ('URL_CSS',"{$protocol}{$domain}assets/css/");
     define ('URL_JS',"{$protocol}{$domain}assets/js/");
     define ('URL_DOCS',"{$protocol}{$domain}assets/documents/");
@@ -52,8 +53,11 @@
     /* PATHS */
     define ('PATH_VAR_CTRL','ctrl');
     define ('PATH_FORM_LOGIN','login');
+    define ('PATH_FORM_SIGNUP','signupform');
     define ('PATH_LOGIN','loginsession');
     define ('PATH_LOGOUT','logout');
+    define ('PATH_SIGNUP','signup');
+    define ('PATH_ACTIVATION','activation');
     define ('PATH_HOME','home');
     define ('PATH_WEB','web');
     define ('PATH_ROLES','roles');
@@ -124,6 +128,7 @@
     define ('EMAIL_PASSWORD_SMTP','skeler2024');
     define ('EMAIL_REPLY','sanidapp@outlook.es');
     
-
+    /* ROLES */
+    define ('DEFAULT_ROLE',7);
 
 ?>

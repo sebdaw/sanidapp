@@ -72,3 +72,13 @@
     font-size: 0.8rem;
     padding: 1rem 2rem;
 }
+
+a{font-size: 11px;}
+a:link{color: white;}
+a:visited{color: white;}
+a:active{color: orange;}
+a:hover{color: orange;}
+
+h2{
+    color: white;
+}

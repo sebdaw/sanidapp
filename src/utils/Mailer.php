@@ -177,7 +177,7 @@ abstract class Mailer{
                 $this->phpmailer->addAttachment(path:$attachment['path'],name:$attachment['name']);
 
             $this->phpmailer->setFrom($this->from['address'],$this->from['title']);
-
+            $this->phpmailer->Subject = $this->subject;
             $sent = $this->phpmailer->send();
             $this->phpmailer->clearAllRecipients();
             $this->phpmailer->clearAttachments();

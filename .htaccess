@@ -13,9 +13,13 @@ deny from all
 RewriteEngine On
 
 RewriteRule ^index$ index.php [NC,L]
+RewriteRule ^signup$ index.php?ctrl=signup [NC,L]
 RewriteRule ^login$ index.php?ctrl=login [NC,L]
 RewriteRule ^logout$ index.php?ctrl=logout [NC,L]
+RewriteRule ^activation$ index.php?ctrl=activation [QSA,NC,L]
+
 RewriteRule ^loginsession$ index.php?ctrl=loginsession [NC,L]
+RewriteRule ^signupform$ index.php?ctrl=signupform [NC,L]
 RewriteRule ^web$ index.php?ctrl=web [NC,L]
 
 # API 

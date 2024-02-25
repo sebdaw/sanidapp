@@ -114,17 +114,29 @@ $routes = [
         'method' => 'form',
         'params' => []
     ],
-
-
-
+    PATH_ACTIVATION => [
+        'controller' => 'LoginController',
+        'method' => 'activation',
+        'params' => []
+    ],
     PATH_FORM_LOGIN => [
         'controller' => 'LoginController',
         'method' => 'main',
         'params' => []
     ],
+    PATH_FORM_SIGNUP => [
+        'controller' => 'LoginController',
+        'method' => 'main',
+        'params' => [PATH_FORM_SIGNUP]
+    ],
     PATH_LOGIN => [
         'controller' => 'LoginController',
         'method' => 'login',
+        'params' => []
+    ],
+    PATH_SIGNUP => [
+        'controller' => 'LoginController',
+        'method' => 'signup',
         'params' => []
     ],
     PATH_LOGOUT => [
