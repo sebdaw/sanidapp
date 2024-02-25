@@ -125,7 +125,7 @@
     define ('EMAIL_HOST', 'smtp-mail.outlook.com');
     define ('EMAIL_PORT','587');
     define ('EMAIL_USER_SMTP','sanidapp@outlook.es');
-    define ('EMAIL_PASSWORD_SMTP','skeler2024');
+    define ('EMAIL_PASSWORD_SMTP','');
     define ('EMAIL_REPLY','sanidapp@outlook.es');
     
     /* ROLES */
